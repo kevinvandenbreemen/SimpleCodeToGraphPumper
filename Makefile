@@ -5,3 +5,4 @@ setup:
 	./scripts/checkJava.sh
 	@echo "Checking for graphviz"
 	./scripts/checkGraphviz.sh
+	mkdir output
