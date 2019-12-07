@@ -15,4 +15,4 @@ fi
 mkdir ${classpathDir}
 cd ${classpathDir}
 
-wget ${umlgraph_url} && echo -e "${GREEN}Successfully downloaded umlgraph${NC}"
+wget ${umlgraph_url} -O ${UMLGRAPH_JAR} && echo -e "${GREEN}Successfully downloaded umlgraph${NC}"
