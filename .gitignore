@@ -1,2 +1,5 @@
 /cp/
 /output/
+/.build
+Package.resolved
+/.vscode
