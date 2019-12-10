@@ -1,5 +1,6 @@
 import Foundation
 import Logging
+import ShellOut
 
 public class PumperMain {
 
@@ -23,6 +24,14 @@ public class PumperMain {
         }
 
         logger.info("Successfully wrote working java doclet to '\(filePath)'")
+
+        //  Step 2:  Run the pumper
+        do {
+            try shellOut(to: "bash", arguments: ["./run.sh", "output/pumperMain.java"], at: fileManager.currentDirectoryPath)
+        } catch let error {
+            logger.error("Failed to run the pumper due to error:\n\(error)")
+            return false
+        }
 
         return false
     }
