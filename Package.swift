@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "SimpleCodeToGraphPumper",
+    products: [
+        .library(name: "SimpleCodeToGraphPumper", targets: ["SimpleCodeToGraphPumper"])
+    ],
     dependencies: [
         .package(url: "https://github.com/objecthub/swift-commandlinekit.git", .branch("master")),
         .package(url: "https://github.com/JohnSundell/ShellOut.git", from: "2.2.0"),
