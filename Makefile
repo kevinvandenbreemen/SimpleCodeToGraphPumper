@@ -5,6 +5,8 @@ setup:
 	./scripts/checkJava.sh
 	@echo "Checking for graphviz"
 	./scripts/checkGraphviz.sh
+	@echo "Fetching UMLGraph Library"
+	./scripts/fetchUMLGraph.sh
 	-mkdir output
 
 test: setup
