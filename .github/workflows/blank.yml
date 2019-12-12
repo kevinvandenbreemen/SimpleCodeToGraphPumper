@@ -1,4 +1,4 @@
-name: CI
+name: Verify Installs and Works with Swift
 
 on: [push]
 
@@ -9,5 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Fetch Needed Dependencies
+      uses: mstksg/get-package@v1
+      with:
+        apt-get: graphviz
     - name: Try to make / build
       run: make test
