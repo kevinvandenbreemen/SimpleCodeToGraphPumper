@@ -12,6 +12,6 @@ jobs:
     - name: Fetch Needed Dependencies
       uses: mstksg/get-package@v1
       with:
-        apt-get: graphviz
+        apt-get: graphviz openjdk-11-jdk
     - name: Try to make / build
       run: make test
