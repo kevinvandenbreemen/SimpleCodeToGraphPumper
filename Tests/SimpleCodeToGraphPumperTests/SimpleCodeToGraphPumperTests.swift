@@ -40,7 +40,13 @@ final class SimpleCodeToGraphPumperTests: XCTestCase {
 
     }
 
+    func testRunSetup() {
+      let pumperMain = PumperMain()
+      XCTAssertTrue(pumperMain.executeSetup())
+    }
+
     static var allTests = [
+        ("Setup Test", testRunSetup),
         ("testExample", testCanCallGrapherFromSwift),
     ]
 }

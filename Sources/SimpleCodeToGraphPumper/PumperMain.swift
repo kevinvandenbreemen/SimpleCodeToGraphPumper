@@ -8,6 +8,21 @@ public class PumperMain {
 
     public init() {}
 
+    /// Executes the main setup to allow this library to work in your environment.  Note that this will
+    /// trigger things like file downloads etc.  If it fails it will display a few error messages instructing
+    /// you on what to do next.
+    public func executeSetup() -> Bool {
+
+        do {
+            try shellOut(to: "make", arguments: ["setup"])
+        } catch let error {
+            logger.error("Failed to configure the code pumper!\n\(error)")
+            return false
+        }
+
+        return true
+    }
+
     public func pumpOut(with javaSourceString: String) -> Bool {
 
         //  Step 1:  Put together a file we can use
