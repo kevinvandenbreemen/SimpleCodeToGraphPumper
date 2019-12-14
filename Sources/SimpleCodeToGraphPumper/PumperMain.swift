@@ -19,9 +19,9 @@ public class PumperMain {
             if !path.isEmpty {
                 logger.info("Attempting to set up pumper environment in base directory of the project...")
                 try shellOut(to: "make", arguments: ["setup"], at: path)
-                try shellOut(to: "cp", arguments: ["-r", "\(path)/scripts", "."])
-                try shellOut(to: "cp", arguments: ["-r", "\(path)/cp", "."])
-                try shellOut(to: "cp", arguments: ["-r", "\(path)/run.sh", "."])
+                try shellOut(to: "cp", arguments: ["-r", "\(path)/scripts", "."], at: path)
+                try shellOut(to: "cp", arguments: ["-r", "\(path)/cp", "."], at: path)
+                try shellOut(to: "cp", arguments: ["-r", "\(path)/run.sh", "."], at: path)
             }
             else {
                 logger.info("Configuring the pumper for standalone execution...")
