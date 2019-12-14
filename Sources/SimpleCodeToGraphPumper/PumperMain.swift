@@ -14,7 +14,7 @@ public class PumperMain {
     public func executeSetup() -> Bool {
 
         do {
-            let path = try shellOut(to: "find", arguments: [".", "-name", "SimpleCodeToGraphPumper"], at: ".build/checkouts")
+            let path = try shellOut(to: "find", arguments: [".build/checkouts", "-name", "SimpleCodeToGraphPumper"])
 
             if !path.isEmpty {
                 logger.info("Code to Graph Pumper located in directory \(path)")
@@ -28,8 +28,7 @@ public class PumperMain {
                 logger.info("Configuring the pumper for standalone execution...")
                 try shellOut(to: "make", arguments: ["setup"])
             }
-
-            logger.info("Location of this package is at \(path)")
+            
         } catch let error {
             logger.error("Failed to configure the code pumper!\n\(error)")
             return false
