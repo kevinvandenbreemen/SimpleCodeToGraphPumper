@@ -13,10 +13,14 @@ public class PumperMain {
     /// you on what to do next.
     public func executeSetup() -> Bool {
 
+        let fileManager = FileManager.default
+        var isDir = ObjCBool(false)
+        let importPath = ".build/checkouts/SimpleCodeToGraphPumper"
+        let projectImportExists = fileManager.fileExists(atPath: importPath, isDirectory: &isDir)
+        
         do {
-            let path = try shellOut(to: "find", arguments: [".build/checkouts", "-name", "SimpleCodeToGraphPumper"])
-
-            if !path.isEmpty {
+            if projectImportExists && isDir.boolValue {
+                let path = importPath
                 logger.info("Code to Graph Pumper located in directory \(path)")
                 logger.info("Attempting to set up pumper environment in base directory of the project...")
                 try shellOut(to: "make", arguments: ["setup"], at: path)
