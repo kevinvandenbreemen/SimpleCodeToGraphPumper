@@ -21,7 +21,7 @@ public class PumperMain {
         do {
             if projectImportExists && isDir.boolValue {
                 let path = importPath
-                logger.info("Code to Graph Pumper located in directory \(path)")
+                logger.info("SCTGP has been checked out as a dependency at \(path) 🚀")
                 logger.info("Attempting to set up pumper environment in base directory of the project...")
                 try shellOut(to: "make", arguments: ["setup"], at: path)
                 try shellOut(to: "cp", arguments: ["-r", "\(path)/scripts", "."])
