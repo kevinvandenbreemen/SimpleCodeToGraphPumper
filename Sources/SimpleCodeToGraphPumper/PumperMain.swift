@@ -17,6 +17,7 @@ public class PumperMain {
             let path = try shellOut(to: "find", arguments: [".", "-name", "SimpleCodeToGraphPumper"], at: ".build/checkouts")
 
             if !path.isEmpty {
+                logger.info("Code to Graph Pumper located in directory \(path)")
                 logger.info("Attempting to set up pumper environment in base directory of the project...")
                 try shellOut(to: "make", arguments: ["setup"], at: path)
                 try shellOut(to: "cp", arguments: ["-r", "\(path)/scripts", "."])
