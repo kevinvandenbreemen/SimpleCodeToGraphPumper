@@ -26,7 +26,9 @@ public class PumperMain {
                 try shellOut(to: "make", arguments: ["setup"], at: path)
                 try shellOut(to: "cp", arguments: ["-r", "\(path)/scripts", "."])
                 try shellOut(to: "cp", arguments: ["-r", "\(path)/cp", "."])
+                try shellOut(to: "cp", arguments: ["-r", "\(path)/output", "."])
                 try shellOut(to: "cp", arguments: ["-r", "\(path)/run.sh", "."])
+                logger.info("Success! 🤓")
             }
             else {
                 logger.info("Configuring the pumper for standalone execution...")
